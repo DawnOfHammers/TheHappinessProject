@@ -1,24 +1,27 @@
-import React, {
-  Component,
-  PropTypes
-} from 'react';
+// @flow
+import React, {Component} from 'react';
+import logoImg from 'images/logo.svg';
+
+type HeaderProps = {
+  title: string,
+  subtitle: string
+};
 
 export default class Header extends Component {
-
-  static propTypes = {
-    title: PropTypes.string.isRequired
-  };
+  displayName: 'Header';
+  props: HeaderProps;
 
   render () {
-    const {title} = this.props;
+    const {title, subtitle} = this.props;
 
     return (
-      <header className='app-header'>
-        <div className='app-header__content inner'>
-          <h1 className='app-header__title'>{title}</h1>
-        </div>
-      </header>
+      <div className='app-header'>
+        <h1 className='app-title'>
+          {title}
+          <img className="app-logo" src={logoImg} alt=""/>
+        </h1>
+        <h2 className='app-subtitle'>{subtitle}</h2>
+      </div>
     );
   }
-
 }

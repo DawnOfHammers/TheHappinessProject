@@ -1,33 +1,21 @@
-import AppStore from 'js/stores/AppStore';
+// @flow
+import MapView from 'js/components/MapView';
 import Header from 'js/components/Header';
-import Map from 'js/components/Map';
+import React, {Component} from 'react';
 import {text} from 'js/config';
-import React, {
-  Component
-} from 'react';
 
 export default class App extends Component {
 
-  constructor (props) {
-    super(props);
-    this.state = AppStore.getState();
-  }
-
-  componentDidMount() {
-    AppStore.listen(this.storeDidUpdate);
-  }
-
-  // bound functions
-  storeDidUpdate = () => {
-    this.setState(AppStore.getState());
-  };
+  displayName: 'App';
+  props: any;
 
   render () {
     return (
-      <section className='page-content'>
-        <Header title={text.title} />
-        <Map {...this.state} />
-      </section>
+      <div className='root'>
+        <Header title={text.title} subtitle={text.subtitle} />
+        <MapView />
+      </div>
     );
   }
+
 }

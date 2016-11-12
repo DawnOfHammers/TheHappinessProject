@@ -1,2 +1,3 @@
-export const MODE_2D = '2D';
-export const MODE_3D = '3D';
+// @flow
+export const
+  ENV_PROD:string = 'production';

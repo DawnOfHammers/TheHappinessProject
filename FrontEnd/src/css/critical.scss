@@ -1,5 +1,9 @@
-@import 'variables';
-
-@import 'base',
-        'grid',
-        'map';
+@import '_variables';
+// Import defaults
+@import
+  '_base',
+  '_layout',
+  '_keyframes',
+  'components/_map',
+  'components/_header',
+  'components/_controls';
